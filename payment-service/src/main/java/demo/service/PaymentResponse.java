@@ -7,13 +7,47 @@ import java.util.Random;
 
 @Data
 public class PaymentResponse {
-    private String paymentId;
-    private String orderId;
-    private boolean isApproved;
-    private boolean isTimeout;
+    private String paymentId;    
+	private String orderId;
     private String message;
+    private boolean isApproved;
+    private boolean isTimeout;    
     private int deliveryTime;
+    
+    public String getPaymentId() {
+		return paymentId;
+	}
 
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId;
+	}
+
+
+    public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	
+    public boolean isApproved() {
+		return isApproved;
+	}
+
+	public void setApproved(boolean isApproved) {
+		this.isApproved = isApproved;
+	}
+	
     public PaymentResponse() {
     }
 

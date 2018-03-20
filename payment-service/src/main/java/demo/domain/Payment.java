@@ -15,15 +15,57 @@ public class Payment {
 
     @Id
     private String id = UUID.randomUUID().toString();
-
-    @ManyToOne(targetEntity = CreditCard.class, cascade = CascadeType.ALL)
+    
+	@ManyToOne(targetEntity = CreditCard.class, cascade = CascadeType.ALL)
     private CreditCard creditCard;
-    private String orderId;
-    private double amount;  // in dollars
+    
+	private String orderId;
+    public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+	
+	public CreditCard getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(CreditCard creditCard) {
+		this.creditCard = creditCard;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	private double amount;  // in dollars
     private PaymentStatus paymentStatus;
 
-    public Payment() {
+    public PaymentStatus getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	public void setPaymentStatus(PaymentStatus paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
+
+	public Payment() {
     }
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
     @JsonCreator
     public Payment(@JsonProperty("orderId") String orderId,
