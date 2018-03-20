@@ -24,8 +24,24 @@ public class Order {
     @Indexed
     private String userId;
     private String paymentId;
-    private OrderStatus orderStatus;
-    private List<Item> items = new ArrayList<>();
+    public String getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	private OrderStatus orderStatus;
+    public OrderStatus getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	private List<Item> items = new ArrayList<>();
     private DeliveryInfo deliveryInfo;
     private double totalCost;
     private String note;
@@ -34,9 +50,25 @@ public class Order {
     @LastModifiedDate
     private Date lastModifyTime;
 
-    private Map<OrderStatus, Date> updateHistory = new HashMap<>();
+    public Date getLastModifyTime() {
+		return lastModifyTime;
+	}
 
-    public Order() {
+	public void setLastModifyTime(Date lastModifyTime) {
+		this.lastModifyTime = lastModifyTime;
+	}
+
+	private Map<OrderStatus, Date> updateHistory = new HashMap<>();
+
+    public Map<OrderStatus, Date> getUpdateHistory() {
+		return updateHistory;
+	}
+
+	public void setUpdateHistory(Map<OrderStatus, Date> updateHistory) {
+		this.updateHistory = updateHistory;
+	}
+
+	public Order() {
     }
 
     @JsonCreator
