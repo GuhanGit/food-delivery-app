@@ -1,0 +1,31 @@
+[
+   {
+  	"healthSystemId": "1",
+    "healthSystemName": "IL Health Center",    
+    "stateCode": "IL",
+    "stateName": "Illinios",
+     "type": "Professional"
+     },
+     {
+  	"healthSystemId": "2",
+    "healthSystemName": "TX health center",    
+    "stateCode": "TX",
+     "stateName": "Texas",
+     "type": "Professional"
+     },
+     {
+  	"healthSystemId": "3",
+    "healthSystemName": "Universal Health Center",    
+    "stateCode": "IL",
+     "stateName": "Illinios",
+     "type": "Health Center"
+     },
+     {
+  	"healthSystemId": "4",
+    "healthSystemName": "KL Center",    
+    "stateCode": "Tx",
+     "stateName": "Texas",
+     "type": "Health Center"
+     }
+    
+]

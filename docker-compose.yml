@@ -5,7 +5,7 @@ rabbitmq:
     - "15672:15672"
 
 mongodb:
-  image: mongo:3.4.4
+  image: mongo:3.4.2
   ports:
     - "27017:27017"
   environment:

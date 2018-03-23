@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health System</title>
+
+    <link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+    <script src="/webjars/angularjs/1.3.8/angular.min.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      min-height: 80px;
+    }
+    
+    .navbar-inverse {
+	    background-color: #077CBC;
+	    border-color: #077CBC;
+	}
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 522px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #077CBC;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    </style>
+
+</head>
+<body ng-app="myApp">
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#"><img alt="accenture" src="accenture_white_sig.png" height="50px;"/></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <!-- <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      </ul> -->
+	    </div>
+	  </div>
+	</nav>
+  
+	<div class="container-fluid text-center">    
+	  <div class="row content">
+	    <div class="col-sm-2 sidenav" style="background: linear-gradient(to top, #4db8ff, #b3e0ff); ">
+		    <!-- <div class="list-group">
+		    	<a href="http://localhost:8081" class="list-group-item active">Health System Service</a>
+		    	<a href="#" class="list-group-item">Claims Service</a>
+		  	</div> -->
+		  	<!-- <img alt="accenture" src="Accenture-The-Need-for-Speed.jpg" height="500px;" width="250px;"/> -->
+	    </div>
+	    <div class="col-sm-8 text-left"> 
+	       <div >
+		        <h2>Micro Service</h2>
+		        <div>
+		        	 <div>
+					<p>The microservices model is the opposite of traditional monolithic software which consists of tightly integrated modules that ship infrequently and have to scale as a single unit. Although the monolithic approach works fine for some organizations and some applications, microservices is becoming popular with companies that need greater agility and scalability.</p>
+		       		 </div>
+		       		 <div>
+		        	<div class="panel panel-info">
+				      <div class="panel-heading">Health System Service</div>
+				      <div class="panel-body">A health system, also sometimes referred to as health care system or as healthcare system, is the organization of people, institutions, and resources that deliver health care services to meet the health needs of target populations.
+				      	<br/> <a class="btn btn-primary" href="http://localhost:8081">Health System Service</a>
+					  </div>
+				    </div>
+				    <div class="panel panel-info">
+				      <div class="panel-heading">Claims Service</div>
+				      <div class="panel-body">The fulfillment by an insurer of its obligation to receive, investigate and act on a claim filed by an insured. It involves multiple administrative and customer service layers that includes review, investigation, adjustment (if necessary), remittance or denial of the claim.
+				      	<br/>  <a class="btn btn-primary" href="http://localhost:8083">Claims Service</a></div>
+				    </div>
+				    </div>
+		        </div>
+		       
+		        
+		       <!--  <div>Search Health System<button type="button" class="btn btn-primary" ng-click="http://localhost:8081">Health System Service</button></div>
+		        <div style="float: right;">Adding Health System <button type="button" class="btn btn-primary" ng-click="http://localhost:8081">Claims Service</button></div> -->
+	    	</div>      
+	    </div>
+	  </div>
+	</div>
+	<footer class="container-fluid text-center">
+	  <p>Copyright 2018 Accenture. All Rights Reserved. Accenture Confidential. For Internal Use Only. </p>
+	</footer>
+	<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
+</body>
+</html>

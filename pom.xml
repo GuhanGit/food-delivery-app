@@ -8,6 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>restaurant-info-service</module>
+		<module>health-system-service</module>
 		<module>order-service</module>
 		<module>payment-service</module>
 		<module>platform</module>
@@ -22,7 +23,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
-		<relativePath />
+		<!-- <relativePath /> -->
 	</parent>
 
 	<properties>

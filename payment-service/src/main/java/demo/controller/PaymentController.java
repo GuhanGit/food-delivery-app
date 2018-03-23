@@ -38,13 +38,19 @@ public class PaymentController {
     // ------------ Get payment by orderId ----------------------------------------------------------
 
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    @ResponseBody
     public Payment getPaymentInfoByOrderId(@RequestParam("orderId") String orderId) {
-        return this.paymentService.getPaymentByOrderId(orderId);
+    	System.out.println("calling payment service**");
+    	Payment payment = this.paymentService.getPaymentByOrderId(orderId);
+    	//System.out.println("payment id"+payment.getOrderId());
+        //return this.paymentService.getPaymentByOrderId(orderId);
+    	return payment;
     }
 
     // ------------ make a payment ----------------------------------------------------------
 
     @RequestMapping(value = "/payment", method = RequestMethod.POST)
+    @ResponseBody
     public DeferredResult<ResponseEntity<?>> makePayment(@RequestBody Payment payment) {
         DeferredResult<ResponseEntity<?>> deferredResult = new DeferredResult<>();
         Payment newPayment = this.paymentService.savePayment(payment);
