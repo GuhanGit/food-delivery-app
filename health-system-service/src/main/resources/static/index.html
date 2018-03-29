@@ -59,249 +59,71 @@
 </head>
 <body ng-app="myApp">
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#"><img alt="accenture" src="accenture_white_sig.png" height="50px;"/></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <!-- <li class="active"><a href="#">Home</a></li> -->
-       <!--  <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li> -->
-      </ul>
-      <!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul> -->
-    </div>
-  </div>
-</nav>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#"><img alt="accenture" src="accenture_white_sig.png" height="50px;"/></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <!-- <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      </ul> -->
+	    </div>
+	  </div>
+	</nav>
   
-<div class="container-fluid text-center" ng-controller="myCtrl">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-	    <div class="list-group">
-	    	<a href="http://localhost:8082" class="list-group-item">Home</a>
-	    	<a href="#" class="list-group-item"  ng-class="{'active': !IsSearch}" ng-click="ShowSearch();">Search</a>
-	    	<a href="#" class="list-group-item" ng-class="{'active': !IsAdd}" ng-click="ShowAdd();">Add Health Systems</a>
-	  	</div>
-   <!--  <div class="panel panel-primary">
-      <div class="panel-heading"><a  ng-click="ShowSearch();">Search</a></div>
-      <div class="panel-heading"><a  ng-click="ShowAdd();">Add Health Systems</a><br/><br/></div>
-    </div> -->
-      <!-- <p><a class="btn btn-success" ng-click="getRestaurantByName(name)">Search</a></p>
-      <p><a class="btn btn-success" ng-click="ShowHide()">Add Health Systems</a><br/><br/></p> -->
-    </div>
-    <div class="col-sm-8 text-left"> 
-       <div >
-        <h2>Health System</h2>
-        <div >
-
-            <!-- Search -->
-            <!-- <a class="btn btn-success" ng-click="">Add Health Systems</a><br/><br/> -->
-            <div ng-hide="IsSearch">
-            	<input type="text" id="name" ng-model="name" placeholder="health system name"/>
-	            <a class="btn btn-success" ng-click="getHealthSystemByName(name)">Search</a>
-	            <a class="btn btn-success" ng-click="getAllHealthSystems()">Get all Health Systems</a><br/><br/>
-                <div ng-if="healthsystems.length > 0">
-                    <p style="color: green">Found <strong>{{ healthsystems.length }}</strong> health systems.</p>
-                </div>
-                <div ng-if="healthsystems.length == 0">
-                    <p style="color: red">No health systems found.</p>
-                </div>
-                <div ng-if="healthsystems.length > 0">
-                    <table style="width:90%">
-                    <th>Id</th>
-                    <th>Health System Name</th>
-                    <th>State Name</th>
-                    <th>Type</th>
-                        <tr ng-repeat="healthsystem in healthsystems">
-                            <!-- <td style="width:15%; text-align:center;">
-                                <strong>{{$index + 1}}</strong><br/>
-                                <div ng-repeat="link in restaurant.links">
-                                    <a ng-href="{{link.href}}">Go to {{restaurant.restaurantName}}</a>
-                                </div>
-                            </td> -->
-                            <td>{{healthsystem.healthSystemId}}</td>
-                            <td>{{healthsystem.healthSystemName}}</td>
-                            <td>{{healthsystem.stateName}}</td>
-                            <td>{{healthsystem.type}}</td>
-                            <!-- <td><pre>{{restaurant | json}}</pre></td> -->
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Search -->
-            
-            <!-- Add -->
-            <div ng-hide="IsAdd">
-            <div class="alert alert-success" ng-if="message.length > 0" >
-             <strong>{{message}}</strong> 
-             </div>
-            
-				
-				<form class="form-horizontal alert alert-warning" name="healthSystemList" id="healthSystemForm" ng-submit="addHealthSystems(healthSystem);" >
-				<h3 class="text-center">Add Health Systems</h3>
-				<div class="form-group">
-				<label for="Health Systems Name">Health Systems Name:</label>
-				<input type="text" name="healthSystemName" class="form-control" placeholder="Health Systems Name" ng-model="healthSystem.healthSystemName" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.healthSystemName.$invalid && healthSystemList.healthSystemName.$dirty">Name field is Empty!</p>
-				</div>
-				<div class="form-group">
-				<label for="State Name">State Name:</label>
-				<input type="text" name="stateName" class="form-control" placeholder="State Name" ng-model="healthSystem.stateName" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.stateName.$invalid && healthSystemList.stateName.$dirty">Invalid State Name!</p>
-				</div>
-				<div class="form-group">
-				<label for="State Code">State Code:</label>
-				<input type="text" name="stateCode" class="form-control" placeholder="State Code" ng-model="healthSystem.stateCode" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.stateCode.$invalid && healthSystemList.stateCode.$dirty">State Code field is Empty!</p>
-				</div>
-				<div class="form-group">
-				<label for="Type">Type:</label>
-				<input type="text" name="type" class="form-control" placeholder="Type" ng-model="healthSystem.type" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.type.$invalid && healthSystemList.type.$dirty">Type field is Empty!</p>
-				</div>
-				
-				<div class="form-group">
-				<button class="btn btn-primary" ng-disabled="healthSystemList.$invalid" >Add</button>
-				</div>
-				</form>
-				</div>
-
-<!-- Add -->
-        </div>
-    </div>      
-      
-    </div>
-    <!-- <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div> -->
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Copyright 2018 Accenture. All Rights Reserved. Accenture Confidential. For Internal Use Only. </p>
-</footer>
-<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+	<div class="container-fluid text-center">    
+	  <div class="row content">
+	    <div class="col-sm-2 sidenav" style="background: linear-gradient(to top, #4db8ff, #b3e0ff); ">
+		    <!-- <div class="list-group">
+		    	<a href="http://localhost:8081" class="list-group-item active">Health System Service</a>
+		    	<a href="#" class="list-group-item">Claims Service</a>
+		  	</div> -->
+		  	<!-- <img alt="accenture" src="Accenture-The-Need-for-Speed.jpg" height="500px;" width="250px;"/> -->
+	    </div>
+	    <div class="col-sm-8 text-left"> 
+	       <div >
+		        <h2>Micro Service</h2>
+		        <div>
+		        	 <div>
+					<p>The microservices model is the opposite of traditional monolithic software which consists of tightly integrated modules that ship infrequently and have to scale as a single unit. Although the monolithic approach works fine for some organizations and some applications, microservices is becoming popular with companies that need greater agility and scalability.</p>
+		       		 </div>
+		       		 <div>
+		        	<div class="panel panel-info">
+				      <div class="panel-heading">Health System Service</div>
+				      <div class="panel-body">A health system, also sometimes referred to as health care system or as healthcare system, is the organization of people, institutions, and resources that deliver health care services to meet the health needs of target populations.
+				      	<!-- <br/> <a class="btn btn-primary" href="https://healthsystem.cfapps.io">Health System Service</a> -->
+				      	<br/> <a class="btn btn-primary" href="healthSystemPage.html">Health System Service</a>
+					  </div>
+				    </div>
+				    <div class="panel panel-info">
+				      <div class="panel-heading">Claims Service</div>
+				      <div class="panel-body">The fulfillment by an insurer of its obligation to receive, investigate and act on a claim filed by an insured. It involves multiple administrative and customer service layers that includes review, investigation, adjustment (if necessary), remittance or denial of the claim.
+				      	<!-- <br/>  <a class="btn btn-primary" href="https://claimservice.cfapps.io">Claims Service</a></div> -->
+				      	<br/>  <a class="btn btn-primary" href="http://localhost:8083">Claims Service</a></div>
+				    </div>
+				    </div>
+		        </div>
+		       
+		        
+		       <!--  <div>Search Health System<button type="button" class="btn btn-primary" ng-click="http://localhost:8081">Health System Service</button></div>
+		        <div style="float: right;">Adding Health System <button type="button" class="btn btn-primary" ng-click="http://localhost:8081">Claims Service</button></div> -->
+	    	</div>      
+	    </div>
+	  </div>
+	</div>
+	<footer class="container-fluid text-center">
+	  <p>Copyright 2018 Accenture. All Rights Reserved. Accenture Confidential. For Internal Use Only. </p>
+	</footer>
+	<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers.js"></script>
     <script src="services.js"></script>
 </body>
-<!-- <body ng-app="myApp">
-
-    <div class="container">
-        <h2>Health System App Demo</h2>
-        <div ng-controller="myCtrl">
-
-            <input type="text" id="name" ng-model="name" placeholder="health system name"/>
-            <a class="btn btn-success" ng-click="getRestaurantByName(name)">Search</a>
-            <a class="btn btn-success" ng-click="getAllHealthSystems()">Get all Health Systems</a><br/><br/>
-            <a class="btn btn-success" ng-click="">Add Health Systems</a><br/><br/>
-            <div>
-                <div ng-if="healthsystems.length > 0">
-                    <p style="color: green">Found <strong>{{ healthsystems.length }}</strong> health systems.</p>
-                </div>
-                <div ng-if="healthsystems.length == 0">
-                    <p style="color: red">No health systems found.</p>
-                </div>
-                <div ng-if="healthsystems.length > 0">
-                    <table style="width:90%">
-                    <th>Id</th>
-                    <th>Health System Name</th>
-                    <th>State Name</th>
-                    <th>Type</th>
-                        <tr ng-repeat="healthsystem in healthsystems">
-                            <td style="width:15%; text-align:center;">
-                                <strong>{{$index + 1}}</strong><br/>
-                                <div ng-repeat="link in restaurant.links">
-                                    <a ng-href="{{link.href}}">Go to {{restaurant.restaurantName}}</a>
-                                </div>
-                            </td>
-                            <td>{{healthsystem.healthSystemId}}</td>
-                            <td>{{healthsystem.healthSystemName}}</td>
-                            <td>{{healthsystem.stateName}}</td>
-                            <td>{{healthsystem.type}}</td>
-                            <td><pre>{{restaurant | json}}</pre></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            Add
-            <div>
-            <div class="alert alert-success">
-             <strong>{{message}}</strong> 
-             </div>
-            
-				
-				<form class="form-horizontal alert alert-warning" name="healthSystemList" id="healthSystemForm" ng-submit="addHealthSystems(healthSystem);" >
-				<h3 class="text-center">Add Health Systems</h3>
-				<div class="form-group">
-				<label for="Health Systems Name">Health Systems Name:</label>
-				<input type="text" name="healthSystemName" class="form-control" placeholder="Health Systems Name" ng-model="healthSystem.healthSystemName" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.healthSystemName.$invalid && healthSystemList.healthSystemName.$dirty">Name field is Empty!</p>
-				</div>
-				<div class="form-group">
-				<label for="State Name">State Name:</label>
-				<input type="text" name="stateName" class="form-control" placeholder="State Name" ng-model="healthSystem.stateName" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.stateName.$invalid && healthSystemList.stateName.$dirty">Invalid State Name!</p>
-				</div>
-				<div class="form-group">
-				<label for="State Code">State Code:</label>
-				<input type="text" name="stateCode" class="form-control" placeholder="State Code" ng-model="healthSystem.stateCode" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.stateCode.$invalid && healthSystemList.stateCode.$dirty">State Code field is Empty!</p>
-				</div>
-				<div class="form-group">
-				<label for="Type">Type:</label>
-				<input type="text" name="type" class="form-control" placeholder="Type" ng-model="healthSystem.type" autofocus required />
-				</div>
-				<div class="form-group">
-				<p class="text-danger" ng-show="healthSystemList.type.$invalid && healthSystemList.type.$dirty">Type field is Empty!</p>
-				</div>
-				
-				<div class="form-group">
-				<button class="btn btn-primary" ng-disabled="healthSystemList.$invalid" >Add</button>
-				</div>
-				</form>
-				</div>
-
-Add
-        </div>
-    </div>
-
-
-    <script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
-    <script src="controllers.js"></script>
-    <script src="services.js"></script>
-</body> -->
-  
 </html>
