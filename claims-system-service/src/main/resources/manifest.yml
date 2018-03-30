@@ -1,0 +1,6 @@
+---
+applications:
+- name: claimservice
+  memory: 512M  
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 100}]'

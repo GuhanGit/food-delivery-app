@@ -34,6 +34,9 @@ public class ClaimSystem {
     @Indexed
     private String claimTypeCode;
     
+    @Indexed
+    private String paymentStatus;
+    
 
     //private List<Item> items = new ArrayList<>();
 
@@ -60,7 +63,8 @@ public class ClaimSystem {
     		@JsonProperty("claimNumber") String claimNumber,
     		@JsonProperty("claimStatusCode") String claimStatusCode,
     		@JsonProperty("claimType") String claimType,
-    		@JsonProperty("claimTypeCode") String claimTypeCode
+    		@JsonProperty("claimTypeCode") String claimTypeCode,
+    		@JsonProperty("paymentStatus") String paymentStatus
                      ) {
         this.claimsId = claimsId;
         this.providerNumber = providerNumber;
@@ -68,7 +72,7 @@ public class ClaimSystem {
         this.claimStatusCode = claimStatusCode;
         this.claimType=claimType;
         this.claimTypeCode = claimTypeCode;
-       
+        this.paymentStatus=paymentStatus;
     }
 
 	public String getClaimsId() {
@@ -117,6 +121,14 @@ public class ClaimSystem {
 
 	public void setClaimType(String claimType) {
 		this.claimType = claimType;
+	}
+
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
 
 	

@@ -29,4 +29,23 @@ angular.module('app.services', [])
             data : claim
         });
     }
+    
+    this.addPayment = function addPayment(claim) {
+    	console.log("claim id:::::"+claim.claimsId)
+        return $http({
+            method : 'POST',
+            url : 'payment',
+            data : {
+            	  "creditCard": {
+            		    "cardNumber": "0123456789123456",
+            		    "cardHolderName": "Emma Wang",
+            		    "expiryMonth": "03",
+            		    "expiryYear": "22",
+            		    "securityCode": "123"
+            		  },
+            		  "claimId": claim.claimsId,
+            		  "amount": 21.97
+            		}
+        });
+    }
 }]);

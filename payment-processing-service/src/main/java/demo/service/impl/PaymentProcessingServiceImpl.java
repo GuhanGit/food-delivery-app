@@ -24,7 +24,7 @@ public class PaymentProcessingServiceImpl implements PaymentProcessingService {
         AuthorizationResponse response = new AuthorizationResponse();
         boolean isApproved = validateCreditCard(request.getCreditCard(), request.getAmount());
         response.setApproved(isApproved);
-        log.info("{}",response.isApproved());
+        log.info("Payment process service Approved{}:::",response.isApproved());
         return response;
     }
 

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PaymentConsumerConfig {
-    public static final String REQUEST_QUEUE_NAME = "foodDelivery.payment.request";
+    public static final String REQUEST_QUEUE_NAME = "claims.payment.request";
 
     @Bean
     Queue requestQueue() {

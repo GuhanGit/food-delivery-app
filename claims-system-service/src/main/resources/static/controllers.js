@@ -13,6 +13,16 @@ angular.module('app.controllers', [])
             });
         }
         
+        $scope.addPayment = function (claimsystem) {        	
+        	GetClaimsSystem.addPayment(claimsystem).then(function(data) {
+               // $scope.claimsystems = data;
+        		GetClaimsSystem.getAllClaims().then(function(data) {
+                    $scope.claimsystems = data;
+                });
+            });
+        	
+        }
+        
         $scope.addClaims = function () {
         	GetClaimsSystem.addClaims($scope.claimSystem).then(function(data) {
                 $scope.message = "" +

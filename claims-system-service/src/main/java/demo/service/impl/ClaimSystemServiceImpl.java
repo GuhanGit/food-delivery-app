@@ -1,6 +1,7 @@
 package demo.service.impl;
 
 import demo.domain.ClaimSystem;
+import demo.domain.OrderStatusUpdateMessage;
 import demo.domain.repository.ClaimSystemRepository;
 import demo.service.ClaimSystemInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,11 @@ public class ClaimSystemServiceImpl implements ClaimSystemInfoService {
     public void createClaims(ClaimSystem claimsystem) {
         this.claimSystemRepository.save(claimsystem);
     }
+
+	@Override
+	public String updateClaimStatus(String claimId, OrderStatusUpdateMessage orderStatusUpdateMessage) {
+		return this.claimSystemRepository.updateStatus( claimId,  orderStatusUpdateMessage);
+	}
 
    /* @Override
     public void createRestaurants(List<HealthSystem> restaurants) {

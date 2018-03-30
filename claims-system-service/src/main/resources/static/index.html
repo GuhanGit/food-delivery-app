@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Food Delivery App</title>
+    <title>Health System</title>
 
     <link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css'>
 
@@ -87,7 +87,7 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
 	    <div class="list-group">
-	    	<a href="http://localhost:8081" class="list-group-item">Home</a>
+	    	 <a href="http://localhost:8081" class="list-group-item">Home</a>
 	    	<!-- <a href="https://healthservice.cfapps.io/" class="list-group-item">Home</a> -->
 	    	<a href="#" class="list-group-item " ng-class="{'active': !IsSearch}" ng-click="ShowSearch();">Search</a>
 	    	<a href="#" class="list-group-item" ng-class="{'active': !IsAdd}" ng-click="ShowAdd();">Add Claims</a>
@@ -124,6 +124,8 @@
                     <th>Claim Status Code</th>
                      <th>Claim Type</th>
                     <th>Claim Type Code</th>
+                    <th>Payment Status</th>
+                     <th></th>
                         <tr ng-repeat="claimsystem in claimsystems">
                             <!-- <td style="width:15%; text-align:center;">
                                 <strong>{{$index + 1}}</strong><br/>
@@ -137,6 +139,8 @@
                             <td>{{claimsystem.claimStatusCode}}</td>
                             <td>{{claimsystem.claimType}}</td>
                             <td>{{claimsystem.claimTypeCode}}</td>
+                            <td>{{claimsystem.paymentStatus}}</td>
+                            <td><a class="btn btn-primary" ng-disabled="claimsystem.paymentStatus==='COMPLETED'" ng-click="addPayment(claimsystem)">Make Payment</a></td>
                             <!-- <td><pre>{{restaurant | json}}</pre></td> -->
                         </tr>
                     </table>
